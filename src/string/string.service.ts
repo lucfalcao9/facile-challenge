@@ -15,8 +15,8 @@ export class StringService {
           return this.encriptarRepository.createTexto(createStringDto);
       }
 	  
-	   async getById(id: number) {
-		
+	   async getById(id: number, texto: string) {
+		const decipher = crypto.update(texto, 'hex', 'utf8')
         return await this.encriptarRepository.findOne(id);
     }
 }
